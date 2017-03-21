@@ -1,23 +1,25 @@
 (function () {
     var dataArray = new Uint8Array(1);
     var audioCtx, analyser, audioElement, source;
-    function modAnal() {
+
+    function hookAnal() {
         audioCtx = new window.AudioContext();
         analyser = audioCtx.createAnalyser();
         audioElement = document.getElementById('track');
         source = audioCtx.createMediaElementSource(audioElement);
         source.connect(analyser);
         analyser.connect(audioCtx.destination);
+        analyser.fftSize = 256;
+        analyser.getByteTimeDomainData(dataArray);
     }
-    modAnal();
-    analyser.fftSize = 256;
-    analyser.getByteTimeDomainData(dataArray);
+    hookAnal();
+
     var w = document.body.clientWidth,
         h = document.body.clientHeight;
     var params = {
         duration: 5
     };
-//        var majorColor ="rgb(26,49, 94)";
+
     var majorColor ="rgb(0,0,0)";
 
     function changeColor(){
@@ -111,7 +113,6 @@
         canvas.fillRect(0, 0, w, h);
         canvas.fill();
         amp = Math.abs(128 - amplitude()) * 5;
-        console.log(amp);
         for(var modx = 0; modx< w; modx += 10){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
@@ -123,10 +124,9 @@
                 }
             }
         }
-        i++;
     }
+
     resizeCanvas();
-    i = 0;
     setInterval(draw, 100);
 
 })();
