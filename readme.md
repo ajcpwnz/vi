@@ -13,5 +13,5 @@ VI`[sualizer]` *visualizes* given audio source using neat sinus curve using canv
 Pleasure.
 
 ### todos:
-- [] add player that uses youtube playlist;
-- [] improve code that is a mess now;
+* [ ] add player that uses youtube playlist;
+* [ ] improve code that is a mess now;
