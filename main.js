@@ -101,7 +101,7 @@
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
-               if(){
+               if(DOTS[j].its < 600){
                    put_dot(DOTS[j], modx)
                } else {
                    update_dot(j)
