@@ -30,7 +30,7 @@
 
     function amplitude(){
         analyser.getByteTimeDomainData(dataArray);
-        ampArr
+        var ampArr = [];
         for (var ampcount = 0; ampcount < 3; ampcount++){
             ampArr[ampcount] = Math.abs(128 - daraArray[ampcount]) * 5;
         }
