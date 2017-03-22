@@ -28,7 +28,7 @@
 
     function amplitude(){
         analyser.getByteTimeDomainData(dataArray);
-        return dataArray;
+        return dataArray[0];
     }
 
     function rand(range) {
