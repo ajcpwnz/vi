@@ -105,13 +105,13 @@
     function draw() {
         opvar = 1;
         canvas.clearRect(0, 0, w, h);
-        console.log('rgba(255,255,255,'+opacity+')');
-        canvas.fillStyle = 'rgba(255,255,255,'+opacity+')'
+        console.log('rgba(255,255,255,'+opvar+')');
+        canvas.fillStyle = 'rgba(255,255,255,'+opvar+')'
         amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 1; j++) {
-                put_dot(DOTS[j], modx, opvar)
+                put_dot(DOTS[j], modx)
             }
         }
         frame++;
