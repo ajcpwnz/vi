@@ -92,24 +92,25 @@
         canvas.stroke();
     }
 
-    function put_dot(dot, modx) {
+    function put_dot(dot, modx, opacity) {
         var d = modify(dot, modx);
-        canvas.fillStyle = dot.color;
+        canvas.fillStyle = 'rgba(255,255,255,'+opacity+')';
         canvas.beginPath();
         canvas.arc(d.x, d.y, d.r, 0, D, !0);
         canvas.closePath();
         canvas.fill();
         //road(d.x, d.y, modx)
     }
-
+    var opvar;
     function draw() {
+        opvar = 1;
         canvas.clearRect(0, 0, w, h);
         amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 1; j++) {
                 if(DOTS[j].its < 500){
-                    put_dot(DOTS[j], modx)
+                    put_dot(DOTS[j], modx, opvar)
                 } else {
                     update_dot(j);
                     put_dot(DOTS[j], modx);
@@ -117,7 +118,9 @@
             }
         }
         frame++;
-        if(frame == 16) {
+        opvar-=.1;
+        if(opvar == 0){opvar = 1}
+        if(frame == 60) {
             frame = 0;
             amp =  Math.abs(128 - amplitude())*5;
         }
@@ -125,5 +128,5 @@
     resizeCanvas();
     frame = 0;
     amp =  Math.abs(128 - amplitude())*5;
-    setInterval(draw, 16);
+    setInterval(draw, 16.66);
 })();
