@@ -100,7 +100,7 @@
         canvas.fill();
         //road(d.x, d.y, modx)
     }
-    var opvar = 1.1;
+    var opvar = 1;
     var grow = true;
     function draw() {
         canvas.clearRect(0, 0, w, h);
@@ -114,15 +114,15 @@
             }
         }
         if (grow){
-            opvar-=.2;
+            opvar-=.1;
         } 
         else {
-            opvar+=.2;
+            opvar+=.1;
         }
-        if(opvar < 0.1){ opvar = 0; grow=false } else if (opvar > 1.1){opvar = 1.1; grow=true;}
+        if(opvar < 0.5){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
         
         frame++;
-        if(frame == 10) {
+        if(frame == 20) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
@@ -130,5 +130,5 @@
     resizeCanvas();
     frame = 0;
     amp =  Math.abs(128 - amplitude())*5;
-    setInterval(draw, 33);
+    setInterval(draw, 16);
 })();
