@@ -84,7 +84,7 @@
     function put_dot(dot, modx) {
         var d = modify(dot, modx);
         canvas.beginPath();
-        canvas.arc(d.x, d.y, opvar*10, 0, D, !0);
+        canvas.arc(d.x, d.y, (opvar - 0.2)*10, 0, D, !0);
         canvas.closePath();
         canvas.fill();
         road(d.x, d.y, modx)
@@ -115,7 +115,7 @@
         if(opvar < 0.2){ opvar = 0.2; grow=false } else if (opvar > .7){opvar = .7; grow=true;}
         
         frame++;
-        if(frame == 10) {
+        if(frame == 20) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
