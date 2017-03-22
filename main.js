@@ -121,7 +121,7 @@
         
         if(opvar == 0){ opvar = 1; grow=false } else if (opvar == 1){opvar = 0; grow=true;}
      
-        if(frame == 30) {
+        if(frame == 15) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
@@ -129,5 +129,5 @@
     resizeCanvas();
     frame = 0;
     amp =  Math.abs(128 - amplitude())*5;
-    setInterval(draw, 16.66);
+    setInterval(draw, 33);
 })();
