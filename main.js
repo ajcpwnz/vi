@@ -113,15 +113,16 @@
                 put_dot(DOTS[j], modx)
             }
         }
-        frame++;
-        if (grow){opvar-=.1;} 
+        if (grow){
+            opvar-=.2;
+        } 
         else {
-            opvar+=.1;
+            opvar+=.2;
         }
-        
         if(opvar < 0.1){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
-     
-        if(frame == 20) {
+        
+        frame++;
+        if(frame == 3) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
@@ -129,5 +130,5 @@
     resizeCanvas();
     frame = 0;
     amp =  Math.abs(128 - amplitude())*5;
-    setInterval(draw, 16);
+    setInterval(draw, 33);
 })();
