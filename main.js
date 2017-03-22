@@ -96,7 +96,8 @@
         canvas.fillStyle = 'rgba(255,255,255,'+opvar+')'
         //amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
-            cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
+            //cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
+            cy = Math.sqrt((amp*amp) - (modx*modx)) + c;
             for (j = 0; j < 10; j++) {
                if(DOTS[j].its < 600){
                    put_dot(DOTS[j], modx)
