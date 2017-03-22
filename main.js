@@ -84,7 +84,7 @@
     function put_dot(dot, modx) {
         var d = modify(dot, modx);
         canvas.beginPath();
-        canvas.arc(d.x, d.y, d.r, 0, D, !0);
+        canvas.arc(d.x, d.y, opvar*10, 0, D, !0);
         canvas.closePath();
         canvas.fill();
         road(d.x, d.y, modx)
