@@ -111,6 +111,8 @@
     function draw() {
         canvas.clearRect(0, 0, w, h);
         for(var modx = 0; modx < w; modx += 20){
+            console.log(Math.floor(w/modx));
+            console.log(ampLi);
             amp = ampLi[Math.floor(w/modx)]
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
@@ -123,7 +125,7 @@
             }
         }
         frame++;
-        if (frame == 30) {
+        if (frame == 60) {
             frame = 0;
             ampLi = amplitude();
         }
@@ -133,6 +135,6 @@
     ampLi = amplitude();
     
     resizeCanvas();
-    setInterval(draw, 16);
+    setInterval(draw, 66);
 
 })();
