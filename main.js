@@ -104,6 +104,7 @@
 
     function draw() {
         canvas.clearRect(0, 0, w, h);
+        amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 1; j++) {
@@ -115,17 +116,7 @@
                 }
             }
         }
-        frame++;
-        if (frame == 3) {
-            frame = 0;
-            amp =  Math.abs(128 - amplitude())*5;
-        }
     }
-    frame = 0;
-   
-    amp =  Math.abs(128 - amplitude())*5;
-    
     resizeCanvas();
     setInterval(draw, 16);
-
 })();
