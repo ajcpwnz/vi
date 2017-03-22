@@ -114,10 +114,10 @@
             }
         }
         if (grow){
-            opvar-=.1;
+            opvar-=.05;
         } 
         else {
-            opvar+=.1;
+            opvar+=.05;
         }
         if(opvar < 0.5){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
         
