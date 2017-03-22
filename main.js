@@ -122,7 +122,7 @@
         if(opvar < 0.1){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
         
         frame++;
-        if(frame == 3) {
+        if(frame == 10) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
