@@ -2,7 +2,7 @@
     var dataArray = new Uint8Array(1);
     var audioCtx, analyser, audioElement, source;
 
-    function hookAnal() {
+    function plugAnal() {
         audioCtx = new window.AudioContext();
         analyser = audioCtx.createAnalyser();
         audioElement = document.getElementById('track');
@@ -12,13 +12,11 @@
         analyser.fftSize = 256;
         analyser.getByteTimeDomainData(dataArray);
     }
-    hookAnal();
+    plugAnal();
 
     var w = document.body.clientWidth,
         h = document.body.clientHeight;
-    var params = {
-        duration: 5
-    };
+ 
 
     var majorColor ="rgb(0,0,0)";
 
@@ -125,7 +123,7 @@
     }
     frame = 0;
    
-    amp amplitude();
+    amp =  amplitude();
     
     resizeCanvas();
     setInterval(draw, 66);
