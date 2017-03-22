@@ -112,7 +112,6 @@
         canvas.fillStyle = majorColor;
         canvas.fillRect(0, 0, w, h);
         canvas.fill();
-        amp = Math.abs(128 - amplitude()) * 5;
         for(var modx = 0; modx< w; modx += 10){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
@@ -124,8 +123,14 @@
                 }
             }
         }
+        frame++;
+        if(frame == 62) {
+            frame = 0;
+            amp = Math.abs(128 - amplitude()) * 5;
+        }
     }
-
+    var frame = 0;
+    amp = Math.abs(128 - amplitude()) * 5;
     resizeCanvas();
     setInterval(draw, 16);
 
