@@ -127,6 +127,6 @@
     }
 
     resizeCanvas();
-    setInterval(draw, 100);
+    setInterval(draw, 16);
 
 })();
