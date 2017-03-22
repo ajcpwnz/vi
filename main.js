@@ -32,7 +32,7 @@
         analyser.getByteTimeDomainData(dataArray);
         var ampArr = [];
         for (var ampcount = 0; ampcount < 3; ampcount++){
-            ampArr[ampcount] = Math.abs(128 - daraArray[ampcount]) * 5;
+            ampArr[ampcount] = Math.abs(128 - dataArray[ampcount]) * 5;
         }
         return ampArr;
     }
