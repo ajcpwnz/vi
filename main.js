@@ -117,7 +117,7 @@
             }
         }
         frame++;
-        if(frame == 2) {
+        if(frame == 8) {
             frame = 0;
             amp =  Math.abs(128 - amplitude())*5;
         }
