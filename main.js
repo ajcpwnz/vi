@@ -77,11 +77,11 @@
 
 
     function modify(d, modx) {
-        x = modx + ((d.modX + d.modY * d.ang) * Math.cos(d.ang));
-        y = cy + ((d.modX + d.modY * d.ang) * Math.sin(d.ang));
-        d.ang = rand(10) * rand(10);
-        d.its++;
-        return {x: x, y: y, r: d.r}
+//         x = modx + ((d.modX + d.modY * d.ang) * Math.cos(d.ang));
+//         y = cy + ((d.modX + d.modY * d.ang) * Math.sin(d.ang));
+//         d.ang = rand(10) * rand(10);
+//         d.its++;
+        return {x: modx, y: cy, r: d.r}
     }
 
     function road(x, y, modx) {
@@ -116,7 +116,7 @@
             }
         }
         frame++;
-        if (frame == 60) {
+        if (frame == 30) {
             frame = 0;
             amp = amplitude();
         }
@@ -126,6 +126,6 @@
     amp =  amplitude();
     
     resizeCanvas();
-    setInterval(draw, 66);
+    setInterval(draw, 33);
 
 })();
