@@ -116,7 +116,14 @@
                 }
             }
         }
+        frame++;
+        if(frame == 2) {
+            frame = 0;
+            amp =  Math.abs(128 - amplitude())*5;
+        }
     }
     resizeCanvas();
+    frame = 0;
+    amp =  Math.abs(128 - amplitude())*5;
     setInterval(draw, 16);
 })();
