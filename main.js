@@ -102,6 +102,7 @@
         //road(d.x, d.y, modx)
     }
     var opvar;
+    var grow = true;
     function draw() {
         opvar = 1;
         canvas.clearRect(0, 0, w, h);
@@ -109,20 +110,20 @@
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 1; j++) {
-                if(DOTS[j].its < 500){
-                    put_dot(DOTS[j], modx, opvar)
-                } else {
-                    update_dot(j);
-                    put_dot(DOTS[j], modx);
-                }
+                put_dot(DOTS[j], modx, opvar)
             }
         }
         frame++;
-        opvar-=.1;
-        if(opvar == 0){opvar = 1}
-        if(frame == 60) {
+        if (grow){opvar-=.1;} 
+        else {
+            opvar+=.1;
+        }
+        
+        if(opvar == 0){ opvar = 1; grow=false } else if (opvar == 1){opvar = 0; grow=true;}
+     
+        if(frame == 30) {
             frame = 0;
-            amp =  Math.abs(128 - amplitude())*5;
+            amp =  Math.abs(128 - amplitude()) * 5;
         }
     }
     resizeCanvas();
