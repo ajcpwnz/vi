@@ -92,9 +92,8 @@
         canvas.stroke();
     }
 
-    function put_dot(dot, modx, opacity) {
+    function put_dot(dot, modx) {
         var d = modify(dot, modx);
-        canvas.fillStyle = 'rgba(255,255,255,'+opacity+')';
         canvas.beginPath();
         canvas.arc(d.x, d.y, d.r, 0, D, !0);
         canvas.closePath();
@@ -106,6 +105,8 @@
     function draw() {
         opvar = 1;
         canvas.clearRect(0, 0, w, h);
+        console.log('rgba(255,255,255,'+opacity+')');
+        canvas.fillStyle = 'rgba(255,255,255,'+opacity+')'
         amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
