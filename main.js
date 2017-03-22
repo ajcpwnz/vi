@@ -1,5 +1,5 @@
 (function () {
-    var dataArray = new Uint8Array(1);
+    var dataArray = new Uint8Array(3);
     var audioCtx, analyser, audioElement, source;
 
     function hookAnal() {
@@ -30,7 +30,11 @@
 
     function amplitude(){
         analyser.getByteTimeDomainData(dataArray);
-        return dataArray[0] ;
+        ampArr
+        for (var ampcount = 0; ampcount < 3; ampcount++){
+            ampArr[ampcount] = Math.abs(128 - daraArray[ampcount]) * 5;
+        }
+        return ampArr;
     }
 
     function rand(range) {
@@ -107,6 +111,7 @@
     function draw() {
         canvas.clearRect(0, 0, w, h);
         for(var modx = 0; modx < w; modx += 20){
+            amp = ampLi[Math.floor(w/modx)]
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
                 if(DOTS[j].its < 500){
@@ -118,13 +123,14 @@
             }
         }
         frame++;
-        if (frame == 61) {
+        if (frame == 30) {
             frame = 0;
-            amp = Math.abs(128 - amplitude()) * 5;
+            ampLi = amplitude();
         }
     }
     frame = 0;
-    amp = Math.abs(128 - amplitude()) * 5;
+   
+    ampLi = amplitude();
     
     resizeCanvas();
     setInterval(draw, 16);
