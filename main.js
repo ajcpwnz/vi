@@ -124,11 +124,11 @@
         frame++;
         if(frame == 10) {
             frame = 0;
-            amp =  Math.abs(128 - amplitude()) * 5;
+            amp =  20//Math.abs(128 - amplitude()) * 5;
         }
     }
     resizeCanvas();
     frame = 0;
-    amp =  Math.abs(128 - amplitude())*5;
+    amp =  20//Math.abs(128 - amplitude())*5;
     setInterval(draw, 33);
 })();
