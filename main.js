@@ -101,7 +101,7 @@
         canvas.arc(d.x, d.y, d.r, 0, D, !0);
         canvas.closePath();
         canvas.fill();
-        road(d.x, d.y, modx)
+        //road(d.x, d.y, modx)
     }
 
     function draw() {
