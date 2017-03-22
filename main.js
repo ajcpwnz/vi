@@ -119,7 +119,7 @@
         else {
             opvar+=.05;
         }
-        if(opvar < 0.5){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
+        if(opvar < 0.5){ opvar = 0.5; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
         
         frame++;
         if(frame == 20) {
