@@ -100,13 +100,13 @@
         canvas.fill();
         //road(d.x, d.y, modx)
     }
-    var opvar = 1;
+    var opvar = 1.1;
     var grow = true;
     function draw() {
         canvas.clearRect(0, 0, w, h);
         console.log('rgba(255,255,255,'+opvar+')');
         canvas.fillStyle = 'rgba(255,255,255,'+opvar+')'
-        amp =  Math.abs(128 - amplitude())*5;
+        //amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 1; j++) {
@@ -119,16 +119,16 @@
         else {
             opvar+=.2;
         }
-        if(opvar < 0.1){ opvar = 0; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
+        if(opvar < 0.1){ opvar = 0; grow=false } else if (opvar > 1.1){opvar = 1.1; grow=true;}
         
         frame++;
         if(frame == 10) {
             frame = 0;
-            amp =  20//Math.abs(128 - amplitude()) * 5;
+            amp =  Math.abs(128 - amplitude()) * 5;
         }
     }
     resizeCanvas();
     frame = 0;
-    amp =  20//Math.abs(128 - amplitude())*5;
+    amp =  Math.abs(128 - amplitude())*5;
     setInterval(draw, 33);
 })();
