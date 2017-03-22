@@ -114,15 +114,15 @@
             }
         }
         if (grow){
-            opvar-=.05;
+            opvar-=.1;
         } 
         else {
-            opvar+=.05;
+            opvar+=.1;
         }
         if(opvar < 0.5){ opvar = 0.5; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
         
         frame++;
-        if(frame == 20) {
+        if(frame == 10) {
             frame = 0;
             amp =  Math.abs(128 - amplitude()) * 5;
         }
