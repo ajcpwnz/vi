@@ -20,8 +20,6 @@
 
     var majorColor ="rgb(0,0,0)";
 
-    document.onclick = changeColor;
-
     function amplitude(){
         analyser.getByteTimeDomainData(dataArray);
         return dataArray[0];
