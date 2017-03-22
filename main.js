@@ -55,14 +55,11 @@
             its: 0,
             modX: Math.random(),
             modY: Math.random(),
-            color: "rgba(" + Math.floor(255 * Math.random()) + "," + Math.floor(255 *
-                Math.random()) + "," + Math.floor(255 * Math.random()) + ", 0.7)"
+            color: "rgba(255,255,255, 0.7)"
         }
     }
 
     function update_dot(index) {
-        DOTS[index].color= "rgba(" + Math.floor(255 * Math.random()) + "," + Math.floor(255 *
-                Math.random()) + "," + Math.floor(255 * Math.random()) + ", 0.7)";
         DOTS[index].r =  rand(5) + 1;
 
     }
@@ -108,11 +105,7 @@
     }
 
     function draw() {
-        canvas.globalCompositeOperation = "source-over";
-        canvas.fillStyle = majorColor;
-        canvas.fillRect(0, 0, w, h);
-        canvas.fill();
-        amp = Math.abs(128 - amplitude()) * 5;
+        canvas.clearRect(0, 0, w, h);
         for(var modx = 0; modx < w; modx += 20){
             cy = (Math.sin((modx * Math.PI / 180)) * amp ) + c;
             for (j = 0; j < 10; j++) {
@@ -124,8 +117,15 @@
                 }
             }
         }
+        frame++;
+        if (frame == 2) {
+            frame = 0;
+            amp = Math.abs(128 - amplitude()) * 5;
+        }
     }
-  
+    frame = 0;
+    amp = Math.abs(128 - amplitude()) * 5;
+    
     resizeCanvas();
     setInterval(draw, 33);
 
