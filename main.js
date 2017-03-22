@@ -70,7 +70,7 @@
         y = cy + ((d.modX + d.modY * d.ang) * Math.sin(d.ang));
         d.ang = rand(10) * rand(10);
         d.its++;
-        return {x: modx, y: cy, r: d.r}
+        return {x: x, y: y, r: d.r}
     }
 
     function road(x, y, modx) {
@@ -93,7 +93,6 @@
     var grow = true;
     function draw() {
         canvas.clearRect(0, 0, w, h);
-        console.log('rgba(255,255,255,'+opvar+')');
         canvas.fillStyle = 'rgba(255,255,255,'+opvar+')'
         //amp =  Math.abs(128 - amplitude())*5;
         for(var modx = 0; modx < w; modx += 20){
@@ -113,7 +112,7 @@
         else {
             opvar+=.1;
         }
-        if(opvar < 0.5){ opvar = 0.5; grow=false } else if (opvar > 1){opvar = 1; grow=true;}
+        if(opvar < 0.2){ opvar = 0.2; grow=false } else if (opvar > .7){opvar = .7; grow=true;}
         
         frame++;
         if(frame == 10) {
